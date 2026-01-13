@@ -1,0 +1,38 @@
+---
+title: "Veo3.1 Video Generation Callbacks"
+description: "The system will call this callback to notify results when video generation is completed."
+---
+
+## Callback Mechanism Overview
+
+When the generation task is complete or fails, the system sends a POST request to your `callBackUrl`.
+
+### Request Format
+
+```json
+{
+  "code": 200,
+  "msg": "Veo3.1 video generated successfully.",
+  "data": {
+    "taskId": "veo_task_abcdef123456",
+    "info": {
+      "resultUrls": ["http://example.com/video1.mp4"],
+      "originUrls": ["http://example.com/original_video1.mp4"],
+      "resolution": "1080p"
+    },
+    "fallbackFlag": false
+  }
+}
+```
+
+### Status Codes
+
+- **200**: Success
+- **401**: Unauthorized
+- **422**: Content policy violation
+
+## Fallback Functionality
+
+If the primary generation fails due to certain errors (e.g. safety filters), the system might fallback to an alternative model if enabled.
+
+- `fallbackFlag`: `true` indicates a fallback model (720p) was used.

@@ -1,0 +1,23 @@
+---
+title: "Luma Modify Video Callbacks"
+description: "Receive notifications when video modification is complete."
+---
+
+## Callback Mechanism Overview
+
+### Request Format
+
+```json
+{
+  "code": 200,
+  "msg": "Modify record generated successfully.",
+  "data": {
+    "taskId": "...",
+    "resultUrls": ["https://..."]
+  }
+}
+```
+
+### Response
+
+Return 200 to confirm receipt.

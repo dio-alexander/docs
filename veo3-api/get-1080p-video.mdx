@@ -1,0 +1,29 @@
+---
+title: "Get 1080P Video"
+description: "Get the high-definition 1080P version of a Veo3.1 video generation task."
+---
+
+## Usage Instructions
+
+- Only videos with **16:9** aspect ratio support 1080P.
+- Generation takes about 2 minutes extra.
+- If not ready, the endpoint may return an error or wait status.
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Query Parameters
+
+**taskId** `string` (required)
+Task ID.
+
+**index** `integer` (optional)
+Video index.
+
+### Response
+
+- **200**: Success (returns 1080p video URL)
+- **404**: Not found or not ready

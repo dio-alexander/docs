@@ -1,33 +1,112 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'API Reference'
+description: 'KIE API endpoints reference'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Base URL
 
-## Welcome
+All API requests should be made to:
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+```
+https://api.kie.ai/api/v1
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All endpoints require Bearer token authentication:
+
+```bash
+Authorization: Bearer YOUR_API_KEY
+```
+
+Get your API key from the [API Key Management](https://kie.ai/api-key) page.
+
+## Common Headers
+
+| Header | Value | Required |
+|--------|-------|----------|
+| `Authorization` | `Bearer YOUR_API_KEY` | Yes |
+| `Content-Type` | `application/json` | Yes |
+
+## Response Format
+
+All responses follow this structure:
+
+### Success Response
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    // Response data
   }
-]
+}
 ```
+
+### Error Response
+
+```json
+{
+  "code": 422,
+  "msg": "Validation Error",
+  "details": "prompt is required"
+}
+```
+
+## API Endpoints
+
+### Video Generation
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/veo/generate` | Generate video with Veo 3.1 |
+| POST | `/runway/generate` | Generate video with Runway |
+| POST | `/kling/generate` | Generate video with Kling |
+| POST | `/seedance/generate` | Generate video with Seedance |
+
+### Music Generation
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/generate` | Generate music with Suno |
+| POST | `/generate/extend` | Extend existing music |
+| POST | `/generate/lyrics` | Generate lyrics |
+
+### Image Generation
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/4o/image/generate` | Generate image with 4o |
+| POST | `/4o/image/edit` | Edit image with 4o |
+| POST | `/flux/kontext/generate` | Generate with Flux Kontext |
+| POST | `/midjourney/generate` | Generate with Midjourney |
+
+### Common
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/record-info` | Get task status and results |
+
+## Rate Limits
+
+Rate limits are applied per API key:
+
+- Requests per minute: Based on plan
+- Concurrent tasks: Based on plan
+- Daily limits: Based on plan
+
+Check your limits in the [Dashboard](https://kie.ai/dashboard).
+
+## SDKs
+
+Community SDKs are available:
+
+<CardGroup cols={2}>
+  <Card title="Go SDK" icon="golang" href="https://github.com/izetmolla/kieai">
+    Go client library for KIE API.
+  </Card>
+  <Card title="Python SDK" icon="python" href="https://github.com/kie-ai/kie-python">
+    Python client library for KIE API.
+  </Card>
+</CardGroup>

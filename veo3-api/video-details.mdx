@@ -1,0 +1,40 @@
+---
+title: "Get Veo3.1 Video Details"
+description: "Query the execution status and results of Veo3.1 video generation tasks."
+---
+
+## Status Descriptions
+
+- **0**: Generating
+- **1**: Success
+- **2**: Failed
+- **3**: Generation Failed
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Query Parameters
+
+**taskId** `string` (required)
+The ID of the task to query.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "status": 1,
+    "result_url": "..."
+  }
+}
+```
+
+### Fallback Status
+
+- `fallbackFlag`: `true` means generated using fallback model (720p).
+- `fallbackFlag`: `false` means primary model (potentially 1080p).

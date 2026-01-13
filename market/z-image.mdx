@@ -1,0 +1,47 @@
+---
+title: "z-image"
+description: "Image generation by z-image"
+---
+
+## Query Task Status
+
+[Get Task Details](market/common/get-task-detail): Learn how to query task status and retrieve generation results.
+
+## Related Resources
+
+- [Market Overview](market/quickstart)
+- [Common API](common-api/get-account-credits)
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Body Parameters
+
+**model** `string` (required)
+
+- Must be `z-image` for this endpoint.
+
+**callBackUrl** `string` (optional)
+
+- URL for webhook notifications.
+
+**input** `object`
+
+- Input parameters for generation.
+
+### Response
+
+- **200**: Success
+- **401**: Unauthorized
+- **402**: Insufficient Credits
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": { ... }
+}
+```

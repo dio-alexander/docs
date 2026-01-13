@@ -1,0 +1,23 @@
+---
+title: "AI Video Generation Callbacks"
+description: "Receive notifications when video generation is complete."
+---
+
+## Callback Mechanism Overview
+
+### Request Format
+
+```json
+{
+  "code": 200,
+  "msg": "All generated successfully.",
+  "data": {
+    "task_id": "...",
+    "video_url": "..."
+  }
+}
+```
+
+### Response
+
+Return 200 to confirm receipt.

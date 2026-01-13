@@ -1,0 +1,96 @@
+---
+title: "4o Image API Quickstart"
+description: "Get started with the 4o Image API to generate high-quality AI images in minutes"
+---
+
+## Welcome to 4o Image API
+
+- **[Text-to-Image](4o-image-api/generate-image)**: Generate high-quality images from text descriptions.
+- **[Image Editing](4o-image-api/generate-image)**: Edit existing images using masks and prompts.
+- **[Image Variants](4o-image-api/generate-image)**: Generate multiple creative variants.
+- **[Task Management](4o-image-api/get-details)**: Track and monitor your image generation tasks.
+
+## Quick Start Guide
+
+### Step 1: Generate Your First Image
+
+```bash
+curl -X POST "https://api.kie.ai/api/v1/gpt4o-image/generate" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "A serene mountain landscape...",
+    "size": "1:1",
+    "nVariants": 1
+  }'
+```
+
+### Step 2: Check Task Status
+
+```bash
+curl -X GET "https://api.kie.ai/api/v1/gpt4o-image/record-info?taskId=YOUR_TASK_ID" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+### Response Format
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "taskId": "task_4o_abc123"
+  }
+}
+```
+
+## Core Features
+
+### Text-to-Image
+
+```json
+{
+  "prompt": "A cute orange cat...",
+  "size": "1:1",
+  "nVariants": 2
+}
+```
+
+### Image Editing
+
+```json
+{
+  "filesUrl": ["https://..."],
+  "maskUrl": "https://...",
+  "prompt": "Replace the sky..."
+}
+```
+
+### Image Variants
+
+```json
+{
+  "filesUrl": ["https://..."],
+  "nVariants": 4
+}
+```
+
+## Advanced Features
+
+### Mask Editing
+
+Use `maskUrl` to define areas for editing.
+
+### Fallback Mechanism
+
+Set `enableFallback: true` to use alternative models if primary fails.
+
+### Using Callbacks
+
+Provide `callBackUrl` to receive notifications.
+
+## Task Status Descriptions
+
+- **0**: Generating
+- **1**: Success
+- **2**: Failed

@@ -1,0 +1,33 @@
+---
+title: "Get Direct Download URL"
+description: "Convert an image URL to a direct download URL."
+---
+
+## Usage Guide
+
+- Solves cross-domain issues.
+- URL valid for 20 minutes.
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Body Parameters
+
+**imageUrl** `string`
+
+- The URL you want to convert.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "downloadUrl": "..."
+  }
+}
+```

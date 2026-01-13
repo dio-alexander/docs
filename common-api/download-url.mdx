@@ -1,0 +1,28 @@
+---
+title: "Get Download URL for Generated Files"
+description: "Convert a temporary file URL to a valid download link."
+---
+
+## Usage Guide
+
+- Some generated file URLs may require conversion to be downloadable or persistent.
+
+## API Reference
+
+### Body Parameters
+
+**url** `string` (required)
+
+- The original file URL.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "downloadUrl": "..."
+  }
+}
+```

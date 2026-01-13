@@ -1,0 +1,50 @@
+---
+title: "Flux Kontext API Quickstart"
+description: "Get started with the Flux Kontext API to generate images from text and edit existing images using AI."
+---
+
+## Welcome to the Flux Kontext API!
+
+- **[Text-to-Image Generation](flux-kontext-api/generate-or-edit-image)**: Create stunning AI images from detailed text descriptions.
+- **[Task Details](flux-kontext-api/get-details)**: Real-time status tracking and webhook callback notifications.
+
+## Basic Usage
+
+### 1. Generate an Image from Text
+
+```bash
+curl -X POST "https://api.kie.ai/api/v1/flux/kontext/generate" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "A serene mountain landscape...",
+    "aspectRatio": "16:9",
+    "model": "flux-kontext-pro"
+  }'
+```
+
+### 2. Edit an Existing Image
+
+```bash
+curl -X POST "https://api.kie.ai/api/v1/flux/kontext/generate" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "Add colorful hot air balloons...",
+    "inputImage": "https://example.com/landscape.jpg",
+    "aspectRatio": "16:9"
+  }'
+```
+
+### 3. Check Generation Status
+
+```bash
+curl -X GET "https://api.kie.ai/api/v1/flux/kontext/record-info?taskId=task_flux_abc123" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Next Steps
+
+- **[Generate or Edit Images](flux-kontext-api/generate-or-edit-image)**: Learn about all parameters.
+- **[Track Progress](flux-kontext-api/get-details)**: Monitor task status.
+- **[Webhook Callbacks](flux-kontext-api/callbacks)**: Set up automatic notifications.

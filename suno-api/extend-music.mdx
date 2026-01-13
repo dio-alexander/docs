@@ -1,0 +1,31 @@
+---
+title: "Extend Music"
+description: "Extend or modify existing music by creating a continuation based on a source audio track."
+---
+
+## Usage Guide
+
+- Extend existing tracks maintaining style consistency.
+
+## Parameter Details
+
+### Custom Parameters (`defaultParamFlag: true`)
+
+- `prompt`, `style`, `title`, `continueAt` required.
+- Limits apply as per model version.
+
+### Original Parameters (`defaultParamFlag: false`)
+
+- Only `audioId` required.
+- Inherits parameters from source.
+
+### Usage Example
+
+```json
+{
+  "audioId": "...",
+  "continueAt": 120,
+  "defaultParamFlag": true,
+  "prompt": "Pick up the tempo..."
+}
+```

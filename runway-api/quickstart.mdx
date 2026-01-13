@@ -1,0 +1,57 @@
+---
+title: "Runway API Quickstart"
+description: "Get started with the Runway API to generate stunning AI videos in minutes"
+---
+
+## Welcome to Runway API
+
+- **[Text-to-Video](runway-api/generate-video)**: Transform text prompts into dynamic video content.
+- **[Image-to-Video](runway-api/generate-video)**: Animate existing images.
+- **[Video Extension](runway-api/extend-video)**: Extend videos to create longer sequences.
+- **[Task Management](runway-api/get-task-details)**: Track and monitor your video generation tasks.
+
+## Quick Start Guide
+
+### Step 1: Generate Your First Video
+
+```bash
+curl -X POST "https://api.kie.ai/api/v1/runway/generate" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "A fluffy orange cat dancing...",
+    "duration": 5,
+    "quality": "720p",
+    "aspectRatio": "16:9"
+  }'
+```
+
+### Step 2: Check Task Status
+
+```bash
+curl -X GET "https://api.kie.ai/api/v1/runway/record-detail?taskId=YOUR_TASK_ID" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Response Format
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "taskId": "..."
+  }
+}
+```
+
+## Video Extension Workflow
+
+1. Generate Initial Video.
+2. Check Completion.
+3. Extend Video using original Task ID.
+
+## Best Practices
+
+- Focus on actions and movements in prompts.
+- Use callbacks instead of polling.

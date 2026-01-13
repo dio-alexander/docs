@@ -1,0 +1,122 @@
+---
+title: "Suno API Overview"
+description: "Generate AI music with Suno models"
+---
+
+The Suno API enables you to create high-quality AI-generated music, lyrics, and audio content using state-of-the-art models.
+
+## Available Models
+
+| Model | Description | Max Duration |
+|-------|-------------|--------------|
+| `V5` | Latest model with superior musical expression | 4 min |
+| `V4_5PLUS` | V4.5+ with richer sound | 8 min |
+| `V4_5` | V4.5 with smarter prompts | 8 min |
+| `V4_5ALL` | V4.5 ALL-IN-ONE | 8 min |
+| `V4` | V4 with improved vocals | 4 min |
+
+## Features
+
+<CardGroup cols={2}>
+  <Card title="Music Generation" icon="music" href="/suno-api/generate-music">
+    Generate complete songs with vocals or instrumentals.
+  </Card>
+  <Card title="Extend Music" icon="arrows-left-right" href="/suno-api/extend-music">
+    Extend existing tracks with new sections.
+  </Card>
+  <Card title="Lyrics Generation" icon="pen" href="/suno-api/generate-lyrics">
+    Generate lyrics for your music.
+  </Card>
+  <Card title="Callbacks" icon="webhook" href="/suno-api/callbacks">
+    Receive results via webhooks.
+  </Card>
+</CardGroup>
+
+## Quick Example
+
+Generate a pop song:
+
+```bash
+curl -X POST https://api.kie.ai/api/v1/generate \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "V4_5",
+    "prompt": "An upbeat summer pop song about road trips and freedom",
+    "style": "pop, upbeat, summer vibes",
+    "instrumental": false
+  }'
+```
+
+## Generation Options
+
+### With Vocals
+
+```json
+{
+  "prompt": "A love ballad about long distance relationships",
+  "style": "ballad, emotional, piano",
+  "instrumental": false
+}
+```
+
+### Instrumental Only
+
+```json
+{
+  "prompt": "Epic orchestral music for a fantasy movie trailer",
+  "style": "orchestral, epic, cinematic",
+  "instrumental": true
+}
+```
+
+### Custom Lyrics
+
+```json
+{
+  "prompt": "Happy birthday song",
+  "lyrics": "[Verse 1]\nHappy birthday to you\nMay all your dreams come true\n\n[Chorus]\nCelebrate this special day...",
+  "style": "pop, cheerful"
+}
+```
+
+## Async Workflow
+
+All Suno tasks are asynchronous with multiple callback stages:
+
+| Stage | Description |
+|-------|-------------|
+| `text` | Lyrics/text generation complete |
+| `first` | First track complete |
+| `complete` | All tracks complete |
+
+```python
+# With webhook - recommended
+response = requests.post(
+    "https://api.kie.ai/api/v1/generate",
+    headers={"Authorization": "Bearer API_KEY"},
+    json={
+        "prompt": "A jazz song",
+        "callBackUrl": "https://your-server.com/webhook"
+    }
+)
+
+# Without webhook - poll for results
+task_id = response.json()["data"]["taskId"]
+# Poll /record-info endpoint
+```
+
+## Pricing
+
+Music generation is priced per task. Longer durations and newer models cost more. See [pricing](https://kie.ai/pricing) for details.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Generate Music" icon="music" href="/suno-api/generate-music">
+    Full guide to music generation.
+  </Card>
+  <Card title="Extend Music" icon="plus" href="/suno-api/extend-music">
+    Learn to extend existing tracks.
+  </Card>
+</CardGroup>

@@ -1,0 +1,47 @@
+---
+title: "Flux-2 - Text to Image"
+description: "High-quality photorealistic image generation powered by Flux-2's advanced AI model"
+---
+
+## Query Task Status
+
+[Get Task Details](market/common/get-task-detail)
+
+## Related Resources
+
+- [Market Overview](market/quickstart)
+- [Common API](common-api/get-account-credits)
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Body Parameters
+
+**model** `string` (required)
+
+- Must be `flux-2/flex-text-to-image`
+
+**callBackUrl** `string` (optional)
+
+- Webhook URL
+
+**input** `object`
+
+- Generation parameters
+
+### Response
+
+- **200**: Success
+- **401**: Unauthorized
+- **402**: Insufficient Credits
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": { ... }
+}
+```

@@ -1,0 +1,34 @@
+---
+title: "Generate Lyrics"
+description: "Generate creative lyrics content based on a text prompt."
+---
+
+## Usage Guide
+
+- Create lyrics for composition.
+- Returns multiple variations.
+- Includes structured verse/chorus sections.
+
+## Parameter Details
+
+**prompt** `string`
+
+- Describe theme, style, subject. MAX 200 words.
+
+**callBackUrl** `string` required
+
+- System POSTs results here.
+
+### Usage Example
+
+```json
+{
+  "prompt": "A nostalgic song about childhood...",
+  "callBackUrl": "https://..."
+}
+```
+
+## Developer Notes
+
+- Retained for 14 days.
+- Returns 2-3 variations per request.

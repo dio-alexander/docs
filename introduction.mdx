@@ -1,0 +1,98 @@
+---
+title: "Getting Started with KIE API (Important)"
+description: "Welcome to KIE. This guide walks you through the essential information you need to start integrating KIE APIs into your product."
+---
+
+## [​](https://docs.kie.ai/#1-available-models-&-playground)1. Available Models & Playground
+
+[https://kie.ai/market](https://kie.ai/market)
+
+- We continuously update and onboard new models as soon as they are stable.
+- Each model page links to its Playground, where you can test and experiment directly in our UI before calling the API.
+- The Playground is the best place to understand model behavior, parameters, and output formats.
+
+## [​](https://docs.kie.ai/#2-pricing)2. Pricing
+
+[https://kie.ai/pricing](https://kie.ai/pricing)
+
+- Our prices are typically 30%–50% lower than official APIs.
+- For some models, discounts can reach up to 80%.
+- Pricing may change as upstream providers adjust their costs, so always refer to the pricing page for the latest numbers.
+
+## [​](https://docs.kie.ai/#3-creating-and-securing-your-api-key)3. Creating and Securing Your API Key
+
+[https://kie.ai/api-key](https://kie.ai/api-key)
+
+- Never expose your API key in frontend code (browser, mobile apps, public repositories).
+- Treat your API key as a secret.
+- Rate limits per key (hourly, daily, and total usage caps)
+- IP whitelist support, allowing only approved server IPs to access the API
+
+## [​](https://docs.kie.ai/#4-required-request-headers)4. Required Request Headers
+
+```bash
+Authorization: Bearer <YOUR_API_KEY>
+Content-Type: application/json
+```
+
+If the key is invalid or missing:
+
+```json
+{ "code": 401, "msg": "You do not have access permissions" }
+```
+
+## [​](https://docs.kie.ai/#5-logs-&-task-details)5. Logs & Task Details
+
+[https://kie.ai/logs](https://kie.ai/logs)
+
+- Creation time
+- Model used
+- Input parameters
+- Task status
+- Credit consumption
+- Final results or error details
+
+## [​](https://docs.kie.ai/#6-data-retention-policy)6. Data Retention Policy
+
+- Generated media files: stored for 14 days, then automatically deleted
+- Log records (text / metadata): stored for 2 months, then automatically deleted
+
+## [​](https://docs.kie.ai/#7-asynchronous-task-model)7. Asynchronous Task Model
+
+Most generation APIs are asynchronous.
+
+- The immediate response is usually HTTP 200 with a `task_id`.
+- You can either:
+  - Provide a callback (webhook) URL in the request, or
+  - Actively poll the “query record info” API using the `task_id`.
+
+## [​](https://docs.kie.ai/#8-rate-limits-&-concurrency)8. Rate Limits & Concurrency
+
+- Up to 20 new generation requests per 10 seconds
+- This typically allows 100+ concurrent running tasks
+- Limits are applied per account
+- Requests will be rejected with HTTP 429
+- Rejected requests will not enter the queue
+
+## [​](https://docs.kie.ai/#9-developer-support)9. Developer Support
+
+- Get help on Discord
+- Get help on Telegram
+- Private, 1-on-1 channels
+- Your data and conversations remain confidential
+- Faster and more technical responses
+- Email: support@kie.ai
+
+## [​](https://docs.kie.ai/#10-stability-expectations)10. Stability Expectations
+
+- We are not perfect
+- Our overall stability may be slightly lower than official providers
+- This is a conscious trade-off to provide lower prices and unified access
+
+## [​](https://docs.kie.ai/#11-about-the-team)11. About the Team
+
+- We move fast
+- We care deeply about developer experience
+- We are constantly improving
+- Not everything is perfect
+- We can’t satisfy every use case immediately

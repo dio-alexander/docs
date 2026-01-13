@@ -1,0 +1,41 @@
+---
+title: "Google - imagen4-fast"
+description: "Image generation by Google imagen4-fast"
+---
+
+## Query Task Status
+
+[Get Task Details](market/common/get-task-detail)
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Body Parameters
+
+**model** `string` (required)
+
+- Must be `google/imagen4-fast`
+
+**callBackUrl** `string` (optional)
+
+- Webhook URL
+
+**input** `object`
+
+- Generation parameters
+
+### Response
+
+- **200**: Success
+- **401**: Unauthorized
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": { ... }
+}
+```

@@ -1,0 +1,36 @@
+---
+title: "Luma API Quickstart"
+description: "Get started with the Luma API to modify and transform videos using advanced AI models."
+---
+
+## Welcome to the Luma API!
+
+- **[Generate Luma Modify Video](luma-api/generate-luma-modify-video)**: Apply style transfer and modifications to existing videos.
+- **[Task Details](luma-api/get-luma-modify-details)**: Track generation status.
+
+## Basic Usage
+
+### 1. Modify an Existing Video
+
+```bash
+curl -X POST "https://api.kie.ai/api/v1/modify/generate" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "A futuristic cityscape...",
+    "videoUrl": "https://example.com/input.mp4",
+    "callBackUrl": "https://your-callback.com"
+  }'
+```
+
+### 2. Check Generation Status
+
+```bash
+curl -X GET "https://api.kie.ai/api/v1/modify/record-detail?taskId=..." \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Next Steps
+
+- **[Generate Modify Video](luma-api/generate-luma-modify-video)**: Full parameter list.
+- **[Callbacks](luma-api/callbacks)**: Handle async results.

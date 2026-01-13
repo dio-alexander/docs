@@ -1,0 +1,44 @@
+---
+title: "Extend Veo 3.1 AI Video"
+description: "Extend an existing Veo3.1 video by generating new content based on the original video and a text prompt."
+---
+
+## Extension Features
+
+- Extend video duration and add more content
+- Change video direction and add new actions or scenes
+- Add new elements while maintaining the original style
+- Create richer video stories
+- **Smart Analysis**: Deeply understand the content and style of the original video
+- **Natural Connection**: Extended content seamlessly connects with the original video
+- **Flexible Control**: Precisely control extended content through prompts
+
+> [!NOTE]
+> Can only extend videos generated through the Veo3.1 API.
+> Extended content must also comply with platform content policies.
+
+## Request Parameters
+
+**task_id** `string` (required)
+The ID of the original video task to extend.
+
+**prompt** `string` (required)
+Description of the new content to append.
+
+**model** `string` (required)
+Must be `google/veo-3.1`.
+
+## Best Practices
+
+### Prompt Writing Suggestions
+
+1. **Detailed Action Description**: Clearly describe how you want the video to be extended, e.g., “the dog continues running through the park, jumping over obstacles”
+2. **Maintain Style Consistency**: Ensure the style of extended content matches the original video
+3. **Natural Transition**: Described actions should naturally connect with the end of the original video
+4. **Use English**: Recommend using English prompts for best results
+
+### Technical Recommendations
+
+1. **Use Callbacks**: Strongly recommend using callback mechanisms to get results in production environments
+2. **Download Promptly**: Download video files promptly after generation, URLs have time limits
+3. **Error Handling**: Implement appropriate error handling and retry mechanisms

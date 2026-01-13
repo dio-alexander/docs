@@ -1,0 +1,41 @@
+---
+title: "Grok Imagine - Text to Image"
+description: "High-quality photorealistic image generation powered by Grok's advanced AI model"
+---
+
+## Query Task Status
+
+[Get Task Details](market/common/get-task-detail)
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Body Parameters
+
+**model** `string` (required)
+
+- Must be `grok-imagine/text-to-image`
+
+**callBackUrl** `string` (optional)
+
+- Webhook URL
+
+**input** `object`
+
+- Image generation parameters
+
+### Response
+
+- **200**: Success
+- **401**: Unauthorized
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": { ... }
+}
+```

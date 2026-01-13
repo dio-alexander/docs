@@ -1,0 +1,29 @@
+---
+title: "File Stream Upload"
+description: "Upload large files efficiently using binary stream."
+---
+
+## Features
+
+- **High Efficiency**: Suitable for large files.
+- **Binary Stream**: Standard form-data upload.
+
+## API Reference
+
+### Body Parameters
+
+**file** `file` (required)
+
+- The file binary.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "url": "https://tempfile..."
+  }
+}
+```

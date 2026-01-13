@@ -1,0 +1,57 @@
+---
+title: "Generate 4o Image"
+description: "Create a new 4o Image generation task."
+---
+
+## Usage Guide
+
+- **Text-to-Image**: Describe image with `prompt`.
+- **Image Editing**: Provide `filesUrl` and `maskUrl`.
+- **Image Variants**: Provide `filesUrl`.
+
+## Parameter Details
+
+### Body Parameters
+
+**prompt** `string`
+
+- Description of desired image or edit instruction.
+- Max 200 words.
+
+**size** `string`
+
+- `1:1`, `4:3`, `3:4`, `16:9`, `9:16`.
+- Default: `1:1`.
+
+**nVariants** `integer`
+
+- Number of images to generate (1-4).
+- Default: 1.
+
+**filesUrl** `array`
+
+- List of image URLs for editing or variants.
+
+**maskUrl** `string`
+
+- URL of mask image for editing.
+
+**enableFallback** `boolean` (optional)
+
+- Activate automatic fallback.
+
+**fallbackModel** `string` (optional)
+
+- `GPT_IMAGE_1` or `FLUX_MAX`.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "taskId": "task..."
+  }
+}
+```

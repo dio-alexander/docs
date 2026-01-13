@@ -1,0 +1,31 @@
+---
+title: "Extend AI Video"
+description: "Extend existing AI-generated videos to create longer sequences."
+---
+
+## Usage Guide
+
+- Extend using original `taskId`.
+- Maintain visual consistency.
+
+## Parameter Details
+
+**taskId** `string` (required)
+
+- ID of the video to extend.
+
+**prompt** `string`
+
+- Guide continuation.
+
+## Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "taskId": "..."
+  }
+}
+```

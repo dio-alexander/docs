@@ -1,0 +1,47 @@
+---
+title: "Generate AI Video"
+description: "Create dynamic AI-generated videos from text prompts or image references."
+---
+
+## Usage Guide
+
+- Create short videos (5-10s).
+- Text or Image input.
+
+## Parameter Details
+
+**prompt** `string`
+
+- Description of video content.
+
+**imageUrl** `string`
+
+- Visual reference.
+
+**aspectRatio** `string`
+
+- `16:9`, `9:16`, etc.
+
+**duration** `integer`
+
+- `5` or `10`.
+
+**quality** `string`
+
+- `720p` or `1080p`.
+
+**waterMark** `string`
+
+- Optional watermark text.
+
+## Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "taskId": "..."
+  }
+}
+```

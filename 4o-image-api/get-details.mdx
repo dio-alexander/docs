@@ -1,0 +1,35 @@
+---
+title: "Get 4o Image Details"
+description: "Query 4o Image generation task details using taskId."
+---
+
+## Status Descriptions
+
+- `GENERATING`
+- `SUCCESS`
+- `CREATE_TASK_FAILED`
+- `GENERATE_FAILED`
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Query Parameters
+
+**taskId** `string` (required)
+Unique identifier of the task.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "status": "SUCCESS",
+    "result_urls": [...]
+  }
+}
+```

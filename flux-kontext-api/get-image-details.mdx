@@ -1,0 +1,36 @@
+---
+title: "Get Image Details"
+description: "Query the status and results of an image generation or editing task."
+---
+
+## Status Descriptions
+
+- **0**: GENERATING
+- **1**: SUCCESS
+- **2**: CREATE_TASK_FAILED
+- **3**: GENERATE_FAILED
+
+## API Reference
+
+### Query Parameters
+
+**taskId** `string` (required)
+
+- Unique identifier of the task.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "status": 1,
+    "resultImageUrl": "..."
+  }
+}
+```
+
+## Important Notes
+
+- Generated images expire after 14 days.

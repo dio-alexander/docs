@@ -1,0 +1,27 @@
+---
+title: "Image Generation or Editing Callbacks"
+description: "Receive results via webhook when generation is complete."
+---
+
+## Callback Mechanism Overview
+
+### Request Format
+
+```json
+{
+  "code": 200,
+  "msg": "BFL image generated successfully.",
+  "data": {
+    "taskId": "task12345",
+    "info": {
+      "originImageUrl": "https://example.com/original.jpg",
+      "resultImageUrl": "https://example.com/result.jpg"
+    }
+  }
+}
+```
+
+### Status Codes
+
+- **200**: Success
+- **401**: Unauthorized

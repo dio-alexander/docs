@@ -1,0 +1,33 @@
+---
+title: "URL File Upload"
+description: "Upload files from a public URL."
+---
+
+## Features
+
+- **Remote Fetch**: Server downloads file from URL.
+- **30s Timeout**: Ensure remote server is fast.
+
+## API Reference
+
+### Body Parameters
+
+**url** `string` (required)
+
+- Publicly accessible file URL.
+
+**fileName** `string` (required)
+
+- Name for the saved file.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "url": "https://tempfile..."
+  }
+}
+```

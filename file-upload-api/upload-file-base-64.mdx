@@ -1,0 +1,33 @@
+---
+title: "Base64 File Upload"
+description: "Upload temporary files via Base64 encoded data."
+---
+
+## Features
+
+- **JSON Transmission**: Easy to integrate.
+- **Temporary Storage**: Files deleted after 3 days.
+
+## API Reference
+
+### Body Parameters
+
+**fileBase64** `string` (required)
+
+- Base64 encoded file string.
+
+**fileName** `string` (required)
+
+- Name of the file with extension.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "url": "https://tempfile..."
+  }
+}
+```

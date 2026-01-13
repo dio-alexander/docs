@@ -1,0 +1,50 @@
+---
+title: "Generate Music"
+description: "Generate music with or without lyrics using AI models."
+---
+
+## Usage Guide
+
+- Creates music based on text prompt.
+- Multiple variations generated.
+- Control detail level with custom mode.
+
+## Parameter Details
+
+### Custom Mode (`customMode: true`)
+
+**instrumental: true**
+
+- `style`, `title` required.
+
+**instrumental: false**
+
+- `style`, `prompt`, `title` required.
+
+**Limits (V4/V4.5/V5)**
+
+- Prompt: 3000-5000 chars
+- Style: 200-1000 chars
+- Title: 80 chars
+
+### Non-custom Mode (`customMode: false`)
+
+- Only `prompt` is required.
+- Limit: 500 chars.
+
+### Usage Example
+
+```json
+{
+  "customMode": true,
+  "prompt": "A relaxing jazz tune",
+  "style": "jazz",
+  "title": "Evening Jazz",
+  "instrumental": false
+}
+```
+
+## Developer Notes
+
+- Generated files retained for 14 days.
+- Callbacks occur at stages: `text`, `first`, `complete`.

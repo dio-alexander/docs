@@ -1,0 +1,63 @@
+---
+title: "Seedream3.0 - Text to Image"
+description: "Image generation by Seedream3.0"
+---
+
+## Query Task Status
+
+[Get Task Details](market/common/get-task-detail): Learn how to query task status and retrieve generation results.
+
+## Related Resources
+
+- [Market Overview](market/quickstart): Explore all available models
+- [Common API](common-api/get-account-credits): Check credits and account usage
+
+## API Reference
+
+### Authorizations
+
+All APIs require authentication via Bearer Token.
+
+**Get API Key**:
+
+1. Visit [API Key Management Page](https://kie.ai/api-key) to get your API Key
+2. Usage: Add to request header: `Authorization: Bearer <YOUR_API_KEY>`
+
+> [!NOTE]
+> Keep your API Key secure.
+
+### Body Parameters
+
+**model** `string` (required)
+The model name to use for generation.
+
+- Must be `bytedance/seedream` for this endpoint.
+
+**callBackUrl** `string` (optional)
+The URL to receive generation task completion updates.
+
+- System will POST task status and results to this URL when generation completes.
+- Alternatively, use the Get Task Details endpoint to poll task status.
+
+**input** `object`
+Input parameters for the generation task.
+
+### Response
+
+- **200**: Success
+- **401**: Unauthorized
+- **402**: Insufficient Credits
+- **429**: Rate Limited
+- **500**: Server Error
+
+**Response Example**
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "task_id": "..."
+  }
+}
+```

@@ -1,0 +1,49 @@
+---
+title: "Generate or Edit Image"
+description: "Create a new image generation or editing task using the Flux Kontext AI model."
+---
+
+## Usage Modes
+
+### Text-to-Image Generation
+
+- Provide `prompt` and `aspectRatio`.
+- Model generates new image from text.
+
+### Image Editing
+
+- Provide `prompt` and `inputImage`.
+- Optional `aspectRatio`.
+- Model edits input image according to prompt.
+
+## API Reference
+
+### Body Parameters
+
+**prompt** `string` (required)
+
+- Text description.
+
+**aspectRatio** `string` (optional)
+
+- e.g., "16:9".
+
+**inputImage** `string` (optional)
+
+- URL of image to edit.
+
+**model** `string` (optional)
+
+- e.g., `flux-kontext-pro`.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "taskId": "task_flux_abc123"
+  }
+}
+```

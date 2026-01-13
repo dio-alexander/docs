@@ -1,0 +1,35 @@
+---
+title: "Get Music Task Details"
+description: "Retrieve detailed information about a music generation task."
+---
+
+## Usage Guide
+
+- Check task status and access results.
+
+## Status Descriptions
+
+- `PENDING`
+- `TEXT_SUCCESS`
+- `FIRST_SUCCESS`
+- `SUCCESS`
+- `CREATE_TASK_FAILED`
+- `GENERATE_AUDIO_FAILED`
+- `CALLBACK_EXCEPTION`
+- `SENSITIVE_WORD_ERROR`
+
+## Query Parameters
+
+**taskId** `string` (required)
+
+- Unique identifier from Generate or Extend task.
+
+## Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": { ... }
+}
+```

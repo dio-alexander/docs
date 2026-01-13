@@ -1,0 +1,39 @@
+---
+title: "Generate Luma Modify Video"
+description: "Create a new Luma modify video generation task."
+---
+
+## Usage Guide
+
+- Modify existing videos using text prompts.
+- Requires `videoUrl`.
+
+## Parameter Details
+
+**prompt** `string` (required)
+
+- Description of the modification (e.g., "A futuristic cityscape...").
+
+**videoUrl** `string` (required)
+
+- URL of the input video.
+
+**waterMark** `string` (optional)
+
+- Watermark identifier.
+
+**callBackUrl** `string` (optional)
+
+- Webhook URL for results.
+
+## Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "taskId": "..."
+  }
+}
+```

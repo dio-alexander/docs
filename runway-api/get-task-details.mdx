@@ -1,0 +1,38 @@
+---
+title: "Get AI Video Details"
+description: "Retrieve information about an AI-generated video task."
+---
+
+## Status Descriptions
+
+- `wait`
+- `queueing`
+- `generating`
+- `success`
+- `fail`
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Query Parameters
+
+**taskId** `string` (required)
+Task ID.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "state": "success",
+    "videoInfo": {
+      "videoUrl": "..."
+    }
+  }
+}
+```

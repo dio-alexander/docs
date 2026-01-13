@@ -1,0 +1,125 @@
+---
+title: "Authentication"
+description: "Learn how to authenticate your KIE API requests"
+---
+
+All KIE API requests require authentication using a Bearer token in the Authorization header.
+
+## Getting Your API Key
+
+1. Sign up or log in at [kie.ai](https://kie.ai)
+2. Navigate to [API Key Management](https://kie.ai/api-key)
+3. Click "Create New Key" and give it a descriptive name
+4. Copy and securely store your API key
+
+<Warning>
+Your API key will only be shown once. If you lose it, you'll need to create a new one.
+</Warning>
+
+## Using Your API Key
+
+Include your API key in the `Authorization` header of every request:
+
+```bash
+Authorization: Bearer YOUR_API_KEY
+```
+
+### Required Headers
+
+Every API request must include these headers:
+
+| Header | Value | Required |
+|--------|-------|----------|
+| `Authorization` | `Bearer YOUR_API_KEY` | Yes |
+| `Content-Type` | `application/json` | Yes |
+
+### Example Request
+
+```bash
+curl -X POST https://api.kie.ai/api/v1/4o/image/generate \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer sk_kie_xxxxxxxxxxxx" \
+  -d '{
+    "prompt": "A beautiful sunset over mountains"
+  }'
+```
+
+## Security Best Practices
+
+<Warning>
+Never expose your API key in:
+- Frontend/client-side code (JavaScript in browsers)
+- Mobile applications
+- Public repositories (GitHub, GitLab, etc.)
+- Logs or error messages
+</Warning>
+
+### Recommended Practices
+
+<CardGroup cols={2}>
+  <Card title="Use Environment Variables" icon="terminal">
+    Store your API key in environment variables, not in code.
+  </Card>
+  <Card title="Server-Side Only" icon="server">
+    Make API calls from your backend server, never from the client.
+  </Card>
+  <Card title="IP Whitelisting" icon="shield">
+    Configure IP whitelist in your dashboard to restrict access.
+  </Card>
+  <Card title="Rotate Keys" icon="rotate">
+    Regularly rotate your API keys for enhanced security.
+  </Card>
+</CardGroup>
+
+### Environment Variables Example
+
+```bash .env
+KIE_API_KEY=sk_kie_xxxxxxxxxxxx
+```
+
+```python Python
+import os
+
+api_key = os.environ.get("KIE_API_KEY")
+```
+
+```javascript Node.js
+const apiKey = process.env.KIE_API_KEY;
+```
+
+## Rate Limits
+
+KIE implements rate limits to ensure fair usage:
+
+- **Hourly limit**: Based on your plan
+- **Daily limit**: Based on your plan
+- **Concurrent requests**: Based on your plan
+
+Check your current limits in the [Dashboard](https://kie.ai/dashboard).
+
+## Error Responses
+
+### 401 Unauthorized
+
+```json
+{
+  "code": 401,
+  "msg": "You do not have access permissions"
+}
+```
+
+**Common causes:**
+- Missing `Authorization` header
+- Invalid or expired API key
+- Malformed Bearer token format
+
+### 429 Rate Limited
+
+```json
+{
+  "code": 429,
+  "msg": "Rate limit exceeded"
+}
+```
+
+**Solution:** Wait and retry, or upgrade your plan for higher limits.

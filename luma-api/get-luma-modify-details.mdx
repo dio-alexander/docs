@@ -1,0 +1,36 @@
+---
+title: "Get Luma Modify Details"
+description: "Query the status and results of a Luma modify video generation task."
+---
+
+## Status Descriptions
+
+- **0**: GENERATING
+- **1**: SUCCESS
+- **2**: CREATE_TASK_FAILED
+- **3**: GENERATE_FAILED
+- **4**: CALLBACK_FAILED
+
+## API Reference
+
+### Authorizations
+
+Authentication: `Authorization: Bearer <YOUR_API_KEY>`
+
+### Query Parameters
+
+**taskId** `string` (required)
+Task ID.
+
+### Response
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "status": 1,
+    "resultUrls": [...]
+  }
+}
+```

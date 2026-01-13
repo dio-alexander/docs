@@ -1,0 +1,36 @@
+---
+title: "Veo3.1 API Quickstart"
+description: "Get started with Veo3.1 API in 5 minutes"
+---
+
+## Overview
+
+- [Text-to-Video](veo3-api/generate-video): Generate high-quality videos through descriptive text prompts
+- [Image-to-Video](veo3-api/generate-video): Bring static images to life
+- [HD Support](veo3-api/get-1080p-video): Support for generating 1080P high-definition videos (16:9 aspect ratio)
+- [Real-time Callbacks](veo3-api/generate-video-callbacks): Automatically push results to your server when tasks complete
+
+## Step 1: Get Your API Key
+
+1. Visit [API Key Management Page](https://kie.ai/api-key)
+2. Generate a new API Key
+3. Safely store your API Key
+
+## Step 2: Basic Authentication
+
+```bash
+Authorization: Bearer <YOUR_API_KEY>
+Content-Type: application/json
+```
+
+## Step 3: Your First Video Generation
+
+```bash
+curl -X POST "https://api.kie.ai/veo3-api/generate" \
+  -H "Authorization: Bearer <YOUR_API_KEY>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/veo-3.1",
+    "prompt": "A cinematic drone shot of a futuristic city..."
+  }'
+```

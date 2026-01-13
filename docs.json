@@ -1,68 +1,145 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "KIE API",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4F46E5"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Market",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "introduction",
+              "market/quickstart",
+              {
+                "group": "Image Models",
+                "pages": [
+                  "market/seedream",
+                  "market/z-image",
+                  "market/google",
+                  "market/flux-2",
+                  "market/grok-imagine"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Veo3.1 API",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Veo3.1 API",
             "pages": [
-              "api-reference/introduction"
+              "veo3-api/quickstart",
+              "veo3-api/generate-video",
+              "veo3-api/generate-video-callbacks",
+              "veo3-api/extend-video",
+              "veo3-api/video-details",
+              "veo3-api/get-1080p-video"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Suno API",
+        "groups": [
           {
-            "group": "Endpoint examples",
+            "group": "Suno API",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "suno-api/quickstart",
+              "suno-api/generate-music",
+              "suno-api/extend-music",
+              "suno-api/generate-lyrics",
+              "suno-api/callbacks",
+              "suno-api/get-music-details",
+              "suno-api/get-credits"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "4o Image API",
+        "groups": [
+          {
+            "group": "4o Image API",
+            "pages": ["4o-image-api/quickstart", "4o-image-api/generate-image"]
+          }
+        ]
+      },
+      {
+        "tab": "Flux Kontext API",
+        "groups": [
+          {
+            "group": "Flux Kontext API",
+            "pages": [
+              "flux-kontext-api/quickstart",
+              "flux-kontext-api/generate-or-edit-image",
+              "flux-kontext-api/callbacks",
+              "flux-kontext-api/get-image-details"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Runway API",
+        "groups": [
+          {
+            "group": "Runway API",
+            "pages": [
+              "runway-api/quickstart",
+              "runway-api/generate-video",
+              "runway-api/extend-video",
+              "runway-api/callbacks",
+              "runway-api/get-task-details"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Luma API",
+        "groups": [
+          {
+            "group": "Luma API",
+            "pages": [
+              "luma-api/quickstart",
+              "luma-api/generate-luma-modify-video",
+              "luma-api/callbacks",
+              "luma-api/get-luma-modify-details"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "File Upload API",
+        "groups": [
+          {
+            "group": "File Upload API",
+            "pages": [
+              "file-upload-api/quickstart",
+              "file-upload-api/upload-file-base-64",
+              "file-upload-api/upload-file-stream",
+              "file-upload-api/upload-file-url"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Common API",
+        "groups": [
+          {
+            "group": "Common API",
+            "pages": [
+              "common-api/quickstart",
+              "common-api/get-account-credits",
+              "common-api/download-url"
             ]
           }
         ]
@@ -71,14 +148,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Home",
+          "href": "https://viralapi.ai/",
+          "icon": "home"
         }
       ]
     }
@@ -91,32 +163,19 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@kie.ai"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://kie.ai/dashboard"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/kie_ai",
+      "github": "https://github.com/kie-ai"
     }
   }
 }

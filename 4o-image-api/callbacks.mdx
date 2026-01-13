@@ -1,0 +1,32 @@
+---
+title: "4o Image Generation Callbacks"
+description: "When the 4o Image task is completed, the system will send the result to your provided callback URL via POST request."
+---
+
+## Callback Mechanism Overview
+
+### Request Format
+
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "taskId": "task12345",
+    "info": {
+      "result_urls": ["https://example.com/result/image1.png"]
+    }
+  }
+}
+```
+
+### Status Codes
+
+- **200**: Success
+- **401**: Unauthorized
+- **422**: Validation Error (e.g. content policy)
+
+### Best Practices
+
+- Return HTTP 200 to confirm receipt.
+- Retries might occur if endpoint is unreachable.
